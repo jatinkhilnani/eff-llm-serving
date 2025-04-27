@@ -6,8 +6,6 @@ from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
 import matplotlib.pyplot as plt
 
-from mem_estimate import get_model_config, estimate_memory_requirements
-
 
 @dataclass
 class KVCache:
@@ -364,13 +362,7 @@ class CacheManager:
 class RequestScheduler:
     """Schedules and routes inference requests"""
 
-    def __init__(
-        self,
-        memory_pool: MemoryPool,
-        cache_manager: CacheManager,
-        model_config: Dict,
-        model_runner: ModelRunner,
-    ):
+    def __init__(self, memory_pool: MemoryPool, cache_manager: CacheManager):
         """
         Initialize request scheduler
 
@@ -380,8 +372,6 @@ class RequestScheduler:
         """
         self.memory_pool = memory_pool
         self.cache_manager = cache_manager
-        self.model_config = model_config
-        self.model_runner = model_runner
         self.request_queue = queue.PriorityQueue()
         self.active_requests = set()
         self.lock = threading.Lock()
@@ -449,17 +439,9 @@ class RequestScheduler:
                 # Check if we can process this request
                 with self.lock:
                     # Estimate memory requirements
-                    prefill_memory_mb, decode_memory_mb = estimate_memory_requirements(
-                        model_config=self.model_config,
-                        batch_size=1,
-                        input_length=prefill_tokens,
-                        output_length=decode_tokens,
-                    )
-
-                    # Adjust by a safety factor
-                    safety_factor = 1.2  # 20% extra
-                    prefill_memory_mb *= safety_factor
-                    decode_memory_mb *= safety_factor
+                    # In a real implementation, this would be based on model specs
+                    prefill_memory_mb = prefill_tokens * 0.1  # Example estimate
+                    decode_memory_mb = decode_tokens * 0.05  # Example estimate
 
                     # Check cache hit
                     cache_hit = False
@@ -497,21 +479,10 @@ class RequestScheduler:
                             f"Processing request {request_id} on device {device}, cache hit: {cache_hit}"
                         )
 
-                        # Create a processing context with necessary information
-                        processing_context = {
-                            "request_id": request_id,
-                            "device": device,
-                            "required_memory": required_memory,
-                            "prefill_tokens": prefill_tokens,
-                            "decode_tokens": decode_tokens,
-                            "cache_hit": cache_hit,
-                        }
-
-                        # Launch the processing in a separate thread to avoid blocking the scheduler
+                        # Simulate processing
                         threading.Thread(
                             target=self._process_request,
-                            args=(processing_context, self.model_runner),
-                            daemon=True,  # Make thread daemon so it doesn't block program exit
+                            args=(request_id, device, required_memory),
                         ).start()
                     else:
                         # Re-queue the request with the same priority
@@ -532,67 +503,57 @@ class RequestScheduler:
                 print(f"Error in scheduler loop: {e}")
                 time.sleep(0.1)
 
-    def _process_request(self, context, model_runner):
+    def _process_request(self, request_id: str, device: int, memory_mb: float):
         """
-        Process a request using the model runner
+        Simulate processing a request
 
         Args:
-            context: Dictionary containing request context
-            model_runner: The model runner instance for this device
+            request_id: Request identifier
+            device: Assigned device
+            memory_mb: Allocated memory in MB
         """
         try:
-            request_id = context["request_id"]
-            device = context["device"]
-            required_memory = context["required_memory"]
+            # Simulate processing time
+            time.sleep(np.random.uniform(0.5, 2.0))
 
-            # Retrieve the actual request data (which would be stored elsewhere)
-            request_data = self._get_request_data(request_id)
-            input_ids = request_data["input_ids"]
-            generation_params = request_data["generation_params"]
+            # In a real implementation, this would run model inference
+            # and store KV cache in the cache manager
 
-            # Run actual model inference
-            output_ids = model_runner.run_inference(
-                request_id=request_id,
-                input_tokens=input_ids,
-                max_new_tokens=generation_params.get("max_new_tokens", 128),
-                device=device,
-                temperature=generation_params.get("temperature", 1.0),
-                top_p=generation_params.get("top_p", 0.9),
-                top_k=generation_params.get("top_k", 50),
-            )
+            # Example of storing cache for the request (just a simulation)
+            for layer_id in [f"layer_{i}" for i in range(12)]:
+                # Create mock tensors
+                key_size = [1, 8, 1, 32]  # batch, heads, seq_len, head_dim
+                value_size = [1, 8, 1, 32]
 
-            # Post-process results (convert token IDs to text)
-            output_text = self._tokenizer.decode(output_ids)
+                key_states = torch.rand(key_size, device=f"cuda:{device}")
+                value_states = torch.rand(value_size, device=f"cuda:{device}")
 
-            # Store results for retrieval by API
-            self._store_results(request_id, output_text)
+                self.cache_manager.store(
+                    request_id=request_id,
+                    layer_id=layer_id,
+                    key_states=key_states,
+                    value_states=value_states,
+                    preferred_device=device,
+                )
 
-            # Update cache with new KV states ## check
-            self.cache_manager.store(
-                request_id=request_id,
-                layer_id=layer_id,
-                key_states=key_states,
-                value_states=value_states,
-                preferred_device=device,
-            )
-
-        except Exception as e:
-            print(f"Error processing request {request_id}: {e}")
-        finally:
-            # Ensure resources are freed
+            # Free the allocated memory
             with self.lock:
                 if request_id in self.active_requests:
                     self.active_requests.remove(request_id)
 
-                # Free the memory
-                self.memory_pool.free(required_memory, device)
-
-                # Record processing end time -- check
+                # Record processing end time
                 if request_id in self.request_times:
                     self.request_times[request_id]["processing_end"] = time.time()
 
-                # Signal request completion for monitoring
-                self._signal_completion(request_id)
+                self.memory_pool.free(memory_mb, device)
+
+        except Exception as e:
+            print(f"Error processing request {request_id}: {e}")
+            # Ensure memory is freed even on error
+            with self.lock:
+                if request_id in self.active_requests:
+                    self.active_requests.remove(request_id)
+                self.memory_pool.free(memory_mb, device)
 
     def get_timing_stats(self):
         """Get timing statistics for all processed requests"""
@@ -825,42 +786,21 @@ class MemServer:
         # Initialize memory pool
         self.memory_pool = MemoryPool(gpu_devices, memory_per_device)
 
-        # Load model config first
-        try:
-            # Try loading from Hugging Face first
-            self.model_config = get_model_config(model_path)
-            print(f"Loaded model config: {self.model_config}")
-        except Exception as e:
-            print(f"Error loading model config from Hugging Face: {e}")
-            # Fallback to default config
-            self.model_config = {
-                "num_layers": 32,
-                "num_heads": 32,
-                "hidden_size": 4096,
-                "head_dim": 128,
-                "dtype_size": 2,  # Default to fp16
-            }
-            print(f"Using default model config: {self.model_config}")
-
         # Initialize cache manager
         self.cache_manager = CacheManager(
             memory_pool=self.memory_pool,
             cache_capacity_percent=cache_capacity_percent,
             eviction_policy="LRU",
         )
-        # Initialize model runner
-        self.model_runner = ModelRunner(
-            model_path=model_path,
-            cache_manager=self.cache_manager,
-            model_config=self.model_config,  # Pass model config to model runner
+
+        # Initialize request scheduler
+        self.scheduler = RequestScheduler(
+            memory_pool=self.memory_pool, cache_manager=self.cache_manager
         )
 
-        # Initialize request scheduler with model config
-        self.scheduler = RequestScheduler(
-            memory_pool=self.memory_pool,
-            cache_manager=self.cache_manager,
-            model_config=self.model_config,  # Pass model config to scheduler
-            model_runner=self.model_runner,  # Pass model runner to scheduler
+        # Initialize model runner
+        self.model_runner = ModelRunner(
+            model_path=model_path, cache_manager=self.cache_manager
         )
 
         self.request_counter = 0
