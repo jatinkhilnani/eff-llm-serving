@@ -1,0 +1,1028 @@
+Saved timing comparison plot to cache_timing_comparison.png
+Saved user experience plot to user_experience.png
+
+Detailed User Performance:
+MemServer stopped
+(os-final-proj) [dip110@gpu-n63 ~]$ Cache miss for request user_35_req_4504. Running prefill.
+Processing request user_35_req_4504 on device 1, cache hit: False
+Cache miss for request user_46_req_4505. Running prefill.
+Processing request user_46_req_4505 on device 1, cache hit: False
+Cache miss for request user_44_req_4506. Running prefill.
+Processing request user_44_req_4506 on device 1, cache hit: False
+Cache miss for request user_36_req_4507. Running prefill.
+Processing request user_36_req_4507 on device 1, cache hit: False
+Cache miss for request user_47_req_4508. Running prefill.
+Processing request user_47_req_4508 on device 1, cache hit: False
+Cache miss for request user_32_req_4509. Running prefill.
+Processing request user_32_req_4509 on device 1, cache hit: False
+Cache miss for request user_25_req_4510. Running prefill.
+Processing request user_25_req_4510 on device 1, cache hit: False
+Cache miss for request user_29_req_4511. Running prefill.
+Processing request user_29_req_4511 on device 1, cache hit: False
+Cache miss for request user_40_req_4512. Running prefill.
+Processing request user_40_req_4512 on device 1, cache hit: False
+Cache miss for request user_39_req_4513. Running prefill.
+Processing request user_39_req_4513 on device 1, cache hit: False
+Cache miss for request user_43_req_4514. Running prefill.
+Processing request user_43_req_4514 on device 1, cache hit: False
+Cache miss for request user_45_req_4515. Running prefill.
+Processing request user_45_req_4515 on device 1, cache hit: False
+Cache miss for request user_41_req_4516. Running prefill.
+Processing request user_41_req_4516 on device 1, cache hit: False
+Cache miss for request user_28_req_4517. Running prefill.
+Processing request user_28_req_4517 on device 1, cache hit: False
+Cache miss for request user_38_req_4518. Running prefill.
+Processing request user_38_req_4518 on device 1, cache hit: False
+Cache miss for request user_27_req_4519. Running prefill.
+Processing request user_27_req_4519 on device 1, cache hit: False
+Cache miss for request user_30_req_4520. Running prefill.
+Processing request user_30_req_4520 on device 1, cache hit: False
+Cache miss for request user_33_req_4521. Running prefill.
+Processing request user_33_req_4521 on device 1, cache hit: False
+Cache miss for request user_31_req_4522. Running prefill.
+Processing request user_31_req_4522 on device 1, cache hit: False
+Cache miss for request user_36_req_4523. Running prefill.
+Processing request user_36_req_4523 on device 1, cache hit: False
+Cache miss for request user_40_req_4524. Running prefill.
+Processing request user_40_req_4524 on device 1, cache hit: False
+Cache miss for request user_44_req_4525. Running prefill.
+Processing request user_44_req_4525 on device 1, cache hit: False
+Cache miss for request user_48_req_4526. Running prefill.
+Processing request user_48_req_4526 on device 1, cache hit: False
+Cache miss for request user_38_req_4527. Running prefill.
+Processing request user_38_req_4527 on device 1, cache hit: False
+Cache miss for request user_47_req_4528. Running prefill.
+Processing request user_47_req_4528 on device 1, cache hit: False
+Cache miss for request user_42_req_4529. Running prefill.
+Processing request user_42_req_4529 on device 1, cache hit: False
+Cache miss for request user_35_req_4530. Running prefill.
+Processing request user_35_req_4530 on device 1, cache hit: False
+Cache miss for request user_33_req_4531. Running prefill.
+Processing request user_33_req_4531 on device 1, cache hit: False
+Cache miss for request user_39_req_4532. Running prefill.
+Cache miss for request user_49_req_4533. Running prefill.
+Processing request user_39_req_4532 on device 1, cache hit: False
+Processing request user_49_req_4533 on device 1, cache hit: False
+Cache miss for request user_25_req_4534. Running prefill.
+Processing request user_25_req_4534 on device 1, cache hit: False
+Cache miss for request user_37_req_4535. Running prefill.
+Processing request user_37_req_4535 on device 1, cache hit: False
+Cache miss for request user_26_req_4536. Running prefill.
+Cache miss for request user_28_req_4537. Running prefill.
+Processing request user_26_req_4536 on device 1, cache hit: False
+Processing request user_28_req_4537 on device 1, cache hit: False
+Cache miss for request user_31_req_4538. Running prefill.
+Processing request user_31_req_4538 on device 1, cache hit: False
+Cache miss for request user_29_req_4539. Running prefill.
+Processing request user_29_req_4539 on device 1, cache hit: False
+Cache miss for request user_34_req_4540. Running prefill.
+Processing request user_34_req_4540 on device 1, cache hit: False
+Cache miss for request user_27_req_4541. Running prefill.
+Processing request user_27_req_4541 on device 1, cache hit: False
+Cache miss for request user_45_req_4542. Running prefill.
+Processing request user_45_req_4542 on device 1, cache hit: False
+Cache miss for request user_48_req_4543. Running prefill.
+Processing request user_48_req_4543 on device 1, cache hit: False
+Cache miss for request user_32_req_4544. Running prefill.
+Processing request user_32_req_4544 on device 1, cache hit: False
+Cache miss for request user_43_req_4545. Running prefill.
+Processing request user_43_req_4545 on device 1, cache hit: False
+Cache miss for request user_41_req_4546. Running prefill.
+Cache miss for request user_46_req_4547. Running prefill.
+Processing request user_41_req_4546 on device 1, cache hit: False
+Processing request user_46_req_4547 on device 1, cache hit: False
+Cache miss for request user_44_req_4548. Running prefill.
+Processing request user_44_req_4548 on device 1, cache hit: False
+Cache miss for request user_40_req_4549. Running prefill.
+Processing request user_40_req_4549 on device 1, cache hit: False
+Cache miss for request user_49_req_4550. Running prefill.
+Processing request user_49_req_4550 on device 1, cache hit: False
+Cache miss for request user_26_req_4551. Running prefill.
+Processing request user_26_req_4551 on device 1, cache hit: False
+Cache miss for request user_29_req_4552. Running prefill.
+Processing request user_29_req_4552 on device 1, cache hit: False
+Cache miss for request user_36_req_4553. Running prefill.
+Processing request user_36_req_4553 on device 1, cache hit: False
+Cache miss for request user_37_req_4554. Running prefill.
+Processing request user_37_req_4554 on device 1, cache hit: False
+Cache miss for request user_30_req_4555. Running prefill.
+Processing request user_30_req_4555 on device 1, cache hit: False
+Cache miss for request user_38_req_4556. Running prefill.
+Processing request user_38_req_4556 on device 1, cache hit: False
+Cache miss for request user_33_req_4557. Running prefill.
+Cache miss for request user_47_req_4558. Running prefill.
+Processing request user_33_req_4557 on device 1, cache hit: False
+Processing request user_47_req_4558 on device 1, cache hit: False
+Cache miss for request user_25_req_4559. Running prefill.
+Processing request user_25_req_4559 on device 1, cache hit: False
+Cache miss for request user_34_req_4560. Running prefill.
+Processing request user_34_req_4560 on device 1, cache hit: False
+Cache miss for request user_45_req_4561. Running prefill.
+Processing request user_45_req_4561 on device 1, cache hit: False
+Cache miss for request user_35_req_4562. Running prefill.
+Processing request user_35_req_4562 on device 1, cache hit: False
+Cache miss for request user_27_req_4563. Running prefill.
+Processing request user_27_req_4563 on device 1, cache hit: False
+Cache miss for request user_39_req_4564. Running prefill.
+Processing request user_39_req_4564 on device 1, cache hit: False
+Cache miss for request user_28_req_4565. Running prefill.
+Processing request user_28_req_4565 on device 1, cache hit: False
+Cache miss for request user_43_req_4566. Running prefill.
+Processing request user_43_req_4566 on device 1, cache hit: False
+Cache miss for request user_41_req_4567. Running prefill.
+Processing request user_41_req_4567 on device 1, cache hit: False
+Cache miss for request user_42_req_4568. Running prefill.
+Processing request user_42_req_4568 on device 1, cache hit: False
+Cache miss for request user_48_req_4569. Running prefill.
+Processing request user_48_req_4569 on device 1, cache hit: False
+Cache miss for request user_44_req_4570. Running prefill.
+Processing request user_44_req_4570 on device 1, cache hit: False
+Cache miss for request user_38_req_4571. Running prefill.
+Processing request user_38_req_4571 on device 1, cache hit: False
+Cache miss for request user_31_req_4572. Running prefill.
+Processing request user_31_req_4572 on device 1, cache hit: False
+Cache miss for request user_37_req_4573. Running prefill.
+Processing request user_37_req_4573 on device 1, cache hit: False
+Cache miss for request user_32_req_4574. Running prefill.
+Processing request user_32_req_4574 on device 1, cache hit: False
+Cache miss for request user_25_req_4575. Running prefill.
+Processing request user_25_req_4575 on device 1, cache hit: False
+Cache miss for request user_49_req_4576. Running prefill.
+Processing request user_49_req_4576 on device 1, cache hit: False
+Cache miss for request user_26_req_4577. Running prefill.
+Processing request user_26_req_4577 on device 1, cache hit: False
+Cache miss for request user_33_req_4578. Running prefill.
+Processing request user_33_req_4578 on device 1, cache hit: False
+Cache miss for request user_40_req_4579. Running prefill.
+Processing request user_40_req_4579 on device 1, cache hit: False
+Cache miss for request user_36_req_4580. Running prefill.
+Processing request user_36_req_4580 on device 1, cache hit: False
+Cache miss for request user_29_req_4581. Running prefill.
+Processing request user_29_req_4581 on device 1, cache hit: False
+Cache miss for request user_43_req_4582. Running prefill.
+Processing request user_43_req_4582 on device 1, cache hit: False
+Cache miss for request user_46_req_4583. Running prefill.
+Cache miss for request user_27_req_4584. Running prefill.
+Processing request user_27_req_4584 on device 1, cache hit: False
+Processing request user_46_req_4583 on device 1, cache hit: False
+Cache miss for request user_25_req_4585. Running prefill.
+Processing request user_25_req_4585 on device 1, cache hit: False
+Cache miss for request user_30_req_4586. Running prefill.
+Processing request user_30_req_4586 on device 1, cache hit: False
+Cache miss for request user_44_req_4587. Running prefill.
+Processing request user_44_req_4587 on device 1, cache hit: False
+Cache miss for request user_41_req_4588. Running prefill.
+Processing request user_41_req_4588 on device 1, cache hit: False
+Cache miss for request user_32_req_4589. Running prefill.
+Processing request user_32_req_4589 on device 1, cache hit: False
+Cache miss for request user_42_req_4590. Running prefill.
+Processing request user_42_req_4590 on device 1, cache hit: False
+Cache miss for request user_31_req_4591. Running prefill.
+Processing request user_31_req_4591 on device 1, cache hit: False
+Cache miss for request user_45_req_4592. Running prefill.
+Processing request user_45_req_4592 on device 1, cache hit: False
+Cache miss for request user_28_req_4593. Running prefill.
+Processing request user_28_req_4593 on device 1, cache hit: False
+Cache miss for request user_48_req_4594. Running prefill.
+Processing request user_48_req_4594 on device 1, cache hit: False
+Cache miss for request user_38_req_4595. Running prefill.
+Processing request user_38_req_4595 on device 1, cache hit: False
+Cache miss for request user_49_req_4596. Running prefill.
+Processing request user_49_req_4596 on device 1, cache hit: False
+Cache miss for request user_36_req_4597. Running prefill.
+Processing request user_36_req_4597 on device 1, cache hit: False
+Cache miss for request user_34_req_4598. Running prefill.
+Processing request user_34_req_4598 on device 1, cache hit: False
+Cache miss for request user_47_req_4599. Running prefill.
+Processing request user_47_req_4599 on device 1, cache hit: False
+Cache miss for request user_39_req_4600. Running prefill.
+Processing request user_39_req_4600 on device 1, cache hit: False
+Cache miss for request user_25_req_4601. Running prefill.
+Processing request user_25_req_4601 on device 1, cache hit: False
+Cache miss for request user_30_req_4602. Running prefill.
+Processing request user_30_req_4602 on device 1, cache hit: False
+Cache miss for request user_40_req_4603. Running prefill.
+Processing request user_40_req_4603 on device 1, cache hit: False
+Cache miss for request user_44_req_4604. Running prefill.
+Cache miss for request user_32_req_4605. Running prefill.
+Processing request user_44_req_4604 on device 1, cache hit: False
+Processing request user_32_req_4605 on device 1, cache hit: False
+Cache miss for request user_35_req_4606. Running prefill.
+Processing request user_35_req_4606 on device 1, cache hit: False
+Cache miss for request user_37_req_4607. Running prefill.
+Processing request user_37_req_4607 on device 1, cache hit: False
+Cache miss for request user_33_req_4608. Running prefill.
+Processing request user_33_req_4608 on device 1, cache hit: False
+Cache miss for request user_43_req_4609. Running prefill.
+Processing request user_43_req_4609 on device 1, cache hit: False
+Cache miss for request user_38_req_4610. Running prefill.
+Cache miss for request user_41_req_4611. Running prefill.
+Processing request user_41_req_4611 on device 1, cache hit: False
+Processing request user_38_req_4610 on device 1, cache hit: False
+Cache miss for request user_30_req_4612. Running prefill.
+Processing request user_30_req_4612 on device 1, cache hit: False
+Cache miss for request user_26_req_4613. Running prefill.
+Processing request user_26_req_4613 on device 1, cache hit: False
+Cache miss for request user_45_req_4614. Running prefill.
+Processing request user_45_req_4614 on device 1, cache hit: False
+Cache miss for request user_46_req_4615. Running prefill.
+Processing request user_46_req_4615 on device 1, cache hit: False
+Cache miss for request user_34_req_4616. Running prefill.
+Processing request user_34_req_4616 on device 1, cache hit: False
+Cache miss for request user_31_req_4617. Running prefill.
+Processing request user_31_req_4617 on device 1, cache hit: False
+Cache miss for request user_35_req_4618. Running prefill.
+Processing request user_35_req_4618 on device 1, cache hit: False
+Cache miss for request user_27_req_4619. Running prefill.
+Processing request user_27_req_4619 on device 1, cache hit: False
+Cache miss for request user_28_req_4620. Running prefill.
+Processing request user_28_req_4620 on device 1, cache hit: False
+Cache miss for request user_36_req_4621. Running prefill.
+Processing request user_36_req_4621 on device 1, cache hit: False
+Cache miss for request user_29_req_4622. Running prefill.
+Processing request user_29_req_4622 on device 1, cache hit: False
+Cache miss for request user_47_req_4623. Running prefill.
+Processing request user_47_req_4623 on device 1, cache hit: False
+Cache miss for request user_44_req_4624. Running prefill.
+Processing request user_44_req_4624 on device 1, cache hit: False
+Cache miss for request user_32_req_4625. Running prefill.
+Processing request user_32_req_4625 on device 1, cache hit: False
+Cache miss for request user_25_req_4626. Running prefill.
+Processing request user_25_req_4626 on device 1, cache hit: False
+Cache miss for request user_49_req_4627. Running prefill.
+Processing request user_49_req_4627 on device 1, cache hit: False
+Cache miss for request user_42_req_4628. Running prefill.
+Processing request user_42_req_4628 on device 1, cache hit: False
+Cache miss for request user_37_req_4629. Running prefill.
+Processing request user_37_req_4629 on device 1, cache hit: False
+Cache miss for request user_33_req_4630. Running prefill.
+Processing request user_33_req_4630 on device 1, cache hit: False
+Cache miss for request user_31_req_4631. Running prefill.
+Processing request user_31_req_4631 on device 1, cache hit: False
+Cache miss for request user_48_req_4632. Running prefill.
+Processing request user_48_req_4632 on device 1, cache hit: False
+Cache miss for request user_39_req_4633. Running prefill.
+Processing request user_39_req_4633 on device 1, cache hit: False
+Cache miss for request user_45_req_4634. Running prefill.
+Processing request user_45_req_4634 on device 1, cache hit: False
+Cache miss for request user_46_req_4635. Running prefill.
+Processing request user_46_req_4635 on device 1, cache hit: False
+Cache miss for request user_29_req_4636. Running prefill.
+Processing request user_29_req_4636 on device 1, cache hit: False
+Cache miss for request user_40_req_4637. Running prefill.
+Processing request user_40_req_4637 on device 1, cache hit: False
+Cache miss for request user_28_req_4638. Running prefill.
+Processing request user_28_req_4638 on device 1, cache hit: False
+Cache miss for request user_30_req_4639. Running prefill.
+Processing request user_30_req_4639 on device 1, cache hit: False
+Cache miss for request user_47_req_4640. Running prefill.
+Processing request user_47_req_4640 on device 1, cache hit: False
+Cache miss for request user_38_req_4641. Running prefill.
+Processing request user_38_req_4641 on device 1, cache hit: False
+Cache miss for request user_41_req_4642. Running prefill.
+Cache miss for request user_43_req_4643. Running prefill.
+Processing request user_43_req_4643 on device 1, cache hit: False
+Processing request user_41_req_4642 on device 1, cache hit: False
+Cache miss for request user_35_req_4644. Running prefill.
+Processing request user_35_req_4644 on device 1, cache hit: False
+Cache miss for request user_34_req_4645. Running prefill.
+Processing request user_34_req_4645 on device 1, cache hit: False
+Cache miss for request user_36_req_4646. Running prefill.
+Processing request user_36_req_4646 on device 1, cache hit: False
+Cache miss for request user_32_req_4647. Running prefill.
+Processing request user_32_req_4647 on device 1, cache hit: False
+Cache miss for request user_27_req_4648. Running prefill.
+Processing request user_27_req_4648 on device 1, cache hit: False
+Cache miss for request user_26_req_4649. Running prefill.
+Cache miss for request user_25_req_4650. Running prefill.
+Processing request user_26_req_4649 on device 1, cache hit: False
+Processing request user_25_req_4650 on device 1, cache hit: False
+Cache miss for request user_44_req_4651. Running prefill.
+Processing request user_44_req_4651 on device 1, cache hit: False
+Cache miss for request user_33_req_4652. Running prefill.
+Processing request user_33_req_4652 on device 1, cache hit: False
+Cache miss for request user_48_req_4653. Running prefill.
+Processing request user_48_req_4653 on device 1, cache hit: False
+Cache miss for request user_45_req_4654. Running prefill.
+Processing request user_45_req_4654 on device 1, cache hit: False
+Cache miss for request user_29_req_4655. Running prefill.
+Processing request user_29_req_4655 on device 1, cache hit: False
+Cache miss for request user_31_req_4656. Running prefill.
+Processing request user_31_req_4656 on device 1, cache hit: False
+Cache miss for request user_47_req_4657. Running prefill.
+Processing request user_47_req_4657 on device 1, cache hit: False
+Cache miss for request user_49_req_4658. Running prefill.
+Processing request user_49_req_4658 on device 1, cache hit: False
+Cache miss for request user_37_req_4659. Running prefill.
+Processing request user_37_req_4659 on device 1, cache hit: False
+Cache miss for request user_38_req_4660. Running prefill.
+Processing request user_38_req_4660 on device 1, cache hit: False
+Cache miss for request user_39_req_4661. Running prefill.
+Processing request user_39_req_4661 on device 1, cache hit: False
+Cache miss for request user_46_req_4662. Running prefill.
+Processing request user_46_req_4662 on device 1, cache hit: False
+Cache miss for request user_25_req_4663. Running prefill.
+Processing request user_25_req_4663 on device 1, cache hit: False
+Cache miss for request user_42_req_4664. Running prefill.
+Processing request user_42_req_4664 on device 1, cache hit: False
+Cache miss for request user_43_req_4665. Running prefill.
+Processing request user_43_req_4665 on device 1, cache hit: False
+Cache miss for request user_28_req_4666. Running prefill.
+Processing request user_28_req_4666 on device 1, cache hit: False
+Cache miss for request user_40_req_4667. Running prefill.
+Processing request user_40_req_4667 on device 1, cache hit: False
+Cache miss for request user_30_req_4668. Running prefill.
+Processing request user_30_req_4668 on device 1, cache hit: False
+Cache miss for request user_33_req_4669. Running prefill.
+Processing request user_33_req_4669 on device 1, cache hit: False
+Cache miss for request user_48_req_4670. Running prefill.
+Processing request user_48_req_4670 on device 1, cache hit: False
+Cache miss for request user_36_req_4671. Running prefill.
+Processing request user_36_req_4671 on device 1, cache hit: False
+Cache miss for request user_32_req_4672. Running prefill.
+Processing request user_32_req_4672 on device 1, cache hit: False
+Cache miss for request user_41_req_4673. Running prefill.
+Processing request user_41_req_4673 on device 1, cache hit: False
+Cache miss for request user_35_req_4674. Running prefill.
+Processing request user_35_req_4674 on device 1, cache hit: False
+Cache miss for request user_27_req_4675. Running prefill.
+Processing request user_27_req_4675 on device 1, cache hit: False
+Cache miss for request user_31_req_4676. Running prefill.
+Processing request user_31_req_4676 on device 1, cache hit: False
+Cache miss for request user_45_req_4677. Running prefill.
+Processing request user_45_req_4677 on device 1, cache hit: False
+Cache miss for request user_28_req_4678. Running prefill.
+Processing request user_28_req_4678 on device 1, cache hit: False
+Cache miss for request user_47_req_4679. Running prefill.
+Processing request user_47_req_4679 on device 1, cache hit: False
+Cache miss for request user_26_req_4680. Running prefill.
+Processing request user_26_req_4680 on device 1, cache hit: False
+Cache miss for request user_43_req_4681. Running prefill.
+Processing request user_43_req_4681 on device 1, cache hit: False
+Cache miss for request user_34_req_4682. Running prefill.
+Cache miss for request user_30_req_4683. Running prefill.
+Processing request user_34_req_4682 on device 1, cache hit: False
+Processing request user_30_req_4683 on device 1, cache hit: False
+Cache miss for request user_44_req_4684. Running prefill.
+Processing request user_44_req_4684 on device 1, cache hit: False
+Cache miss for request user_38_req_4685. Running prefill.
+Processing request user_38_req_4685 on device 1, cache hit: False
+Cache miss for request user_46_req_4686. Running prefill.
+Processing request user_46_req_4686 on device 1, cache hit: False
+Cache miss for request user_37_req_4687. Running prefill.
+Processing request user_37_req_4687 on device 1, cache hit: False
+Cache miss for request user_25_req_4688. Running prefill.
+Processing request user_25_req_4688 on device 1, cache hit: False
+Cache miss for request user_42_req_4689. Running prefill.
+Processing request user_42_req_4689 on device 1, cache hit: False
+Cache miss for request user_39_req_4690. Running prefill.
+Processing request user_39_req_4690 on device 1, cache hit: False
+Cache miss for request user_48_req_4691. Running prefill.
+Processing request user_48_req_4691 on device 1, cache hit: False
+Cache miss for request user_28_req_4692. Running prefill.
+Processing request user_28_req_4692 on device 1, cache hit: False
+Cache miss for request user_49_req_4693. Running prefill.
+Processing request user_49_req_4693 on device 1, cache hit: False
+Cache miss for request user_29_req_4694. Running prefill.
+Processing request user_29_req_4694 on device 1, cache hit: False
+Cache miss for request user_35_req_4695. Running prefill.
+Processing request user_35_req_4695 on device 1, cache hit: False
+Cache miss for request user_40_req_4696. Running prefill.
+Processing request user_40_req_4696 on device 1, cache hit: False
+Cache miss for request user_30_req_4697. Running prefill.
+Processing request user_30_req_4697 on device 1, cache hit: False
+Cache miss for request user_36_req_4698. Running prefill.
+Processing request user_36_req_4698 on device 1, cache hit: False
+Cache miss for request user_33_req_4699. Running prefill.
+Processing request user_33_req_4699 on device 1, cache hit: False
+Cache miss for request user_43_req_4700. Running prefill.
+Processing request user_43_req_4700 on device 1, cache hit: False
+Cache miss for request user_32_req_4701. Running prefill.
+Processing request user_32_req_4701 on device 1, cache hit: False
+Cache miss for request user_27_req_4702. Running prefill.
+Processing request user_27_req_4702 on device 1, cache hit: False
+Cache miss for request user_41_req_4703. Running prefill.
+Processing request user_41_req_4703 on device 1, cache hit: False
+Cache miss for request user_44_req_4704. Running prefill.
+Processing request user_44_req_4704 on device 1, cache hit: False
+Cache miss for request user_26_req_4705. Running prefill.
+Processing request user_26_req_4705 on device 1, cache hit: False
+Cache miss for request user_47_req_4706. Running prefill.
+Processing request user_47_req_4706 on device 1, cache hit: False
+Cache miss for request user_34_req_4707. Running prefill.
+Processing request user_34_req_4707 on device 1, cache hit: False
+Cache miss for request user_45_req_4708. Running prefill.
+Processing request user_45_req_4708 on device 1, cache hit: False
+Cache miss for request user_46_req_4709. Running prefill.
+Processing request user_46_req_4709 on device 1, cache hit: False
+Cache miss for request user_49_req_4710. Running prefill.
+Processing request user_49_req_4710 on device 1, cache hit: False
+Cache miss for request user_30_req_4711. Running prefill.
+Processing request user_30_req_4711 on device 1, cache hit: False
+Cache miss for request user_38_req_4712. Running prefill.
+Processing request user_38_req_4712 on device 1, cache hit: False
+Cache miss for request user_31_req_4713. Running prefill.
+Processing request user_31_req_4713 on device 1, cache hit: False
+Cache miss for request user_42_req_4714. Running prefill.
+Processing request user_42_req_4714 on device 1, cache hit: False
+Cache miss for request user_25_req_4715. Running prefill.
+Processing request user_25_req_4715 on device 1, cache hit: False
+Cache miss for request user_29_req_4716. Running prefill.
+Processing request user_29_req_4716 on device 1, cache hit: False
+Cache miss for request user_36_req_4717. Running prefill.
+Processing request user_36_req_4717 on device 1, cache hit: False
+Cache miss for request user_39_req_4718. Running prefill.
+Processing request user_39_req_4718 on device 1, cache hit: False
+Cache miss for request user_37_req_4719. Running prefill.
+Processing request user_37_req_4719 on device 1, cache hit: False
+Cache miss for request user_28_req_4720. Running prefill.
+Processing request user_28_req_4720 on device 1, cache hit: False
+Cache miss for request user_41_req_4721. Running prefill.
+Processing request user_41_req_4721 on device 1, cache hit: False
+Cache miss for request user_32_req_4722. Running prefill.
+Cache miss for request user_35_req_4723. Running prefill.
+Processing request user_32_req_4722 on device 1, cache hit: False
+Processing request user_35_req_4723 on device 1, cache hit: False
+Cache miss for request user_49_req_4724. Running prefill.
+Processing request user_49_req_4724 on device 1, cache hit: False
+Cache miss for request user_46_req_4725. Running prefill.
+Processing request user_46_req_4725 on device 1, cache hit: False
+Cache miss for request user_43_req_4726. Running prefill.
+Processing request user_43_req_4726 on device 1, cache hit: False
+Cache miss for request user_48_req_4727. Running prefill.
+Processing request user_48_req_4727 on device 1, cache hit: False
+Cache miss for request user_26_req_4728. Running prefill.
+Processing request user_26_req_4728 on device 1, cache hit: False
+Cache miss for request user_40_req_4729. Running prefill.
+Processing request user_40_req_4729 on device 1, cache hit: False
+Cache miss for request user_39_req_4730. Running prefill.
+Processing request user_39_req_4730 on device 1, cache hit: False
+Cache miss for request user_33_req_4731. Running prefill.
+Processing request user_33_req_4731 on device 1, cache hit: False
+Cache miss for request user_27_req_4732. Running prefill.
+Processing request user_27_req_4732 on device 1, cache hit: False
+Cache miss for request user_28_req_4733. Running prefill.
+Processing request user_28_req_4733 on device 1, cache hit: False
+Cache miss for request user_44_req_4734. Running prefill.
+Processing request user_44_req_4734 on device 1, cache hit: False
+Cache miss for request user_42_req_4735. Running prefill.
+Processing request user_42_req_4735 on device 1, cache hit: False
+Cache miss for request user_47_req_4736. Running prefill.
+Processing request user_47_req_4736 on device 1, cache hit: False
+Cache miss for request user_35_req_4737. Running prefill.
+Processing request user_35_req_4737 on device 1, cache hit: False
+Cache miss for request user_29_req_4738. Running prefill.
+Processing request user_29_req_4738 on device 1, cache hit: False
+Cache miss for request user_41_req_4739. Running prefill.
+Processing request user_41_req_4739 on device 1, cache hit: False
+Cache miss for request user_30_req_4740. Running prefill.
+Processing request user_30_req_4740 on device 1, cache hit: False
+Cache miss for request user_45_req_4741. Running prefill.
+Processing request user_45_req_4741 on device 1, cache hit: False
+Cache miss for request user_31_req_4742. Running prefill.
+Processing request user_31_req_4742 on device 1, cache hit: False
+Cache miss for request user_37_req_4743. Running prefill.
+Processing request user_37_req_4743 on device 1, cache hit: False
+Cache miss for request user_25_req_4744. Running prefill.
+Processing request user_25_req_4744 on device 1, cache hit: False
+Cache miss for request user_34_req_4745. Running prefill.
+Processing request user_34_req_4745 on device 1, cache hit: False
+Cache miss for request user_38_req_4746. Running prefill.
+Processing request user_38_req_4746 on device 1, cache hit: False
+Cache miss for request user_36_req_4747. Running prefill.
+Processing request user_36_req_4747 on device 1, cache hit: False
+Cache miss for request user_48_req_4748. Running prefill.
+Processing request user_48_req_4748 on device 1, cache hit: False
+Cache miss for request user_49_req_4749. Running prefill.
+Processing request user_49_req_4749 on device 1, cache hit: False
+Cache miss for request user_27_req_4750. Running prefill.
+Processing request user_27_req_4750 on device 1, cache hit: False
+Cache miss for request user_32_req_4751. Running prefill.
+Processing request user_32_req_4751 on device 1, cache hit: False
+Cache miss for request user_35_req_4752. Running prefill.
+Processing request user_35_req_4752 on device 1, cache hit: False
+Cache miss for request user_41_req_4753. Running prefill.
+Processing request user_41_req_4753 on device 1, cache hit: False
+Cache miss for request user_47_req_4754. Running prefill.
+Processing request user_47_req_4754 on device 1, cache hit: False
+Cache miss for request user_39_req_4755. Running prefill.
+Processing request user_39_req_4755 on device 1, cache hit: False
+Cache miss for request user_29_req_4756. Running prefill.
+Processing request user_29_req_4756 on device 1, cache hit: False
+Cache miss for request user_30_req_4757. Running prefill.
+Processing request user_30_req_4757 on device 1, cache hit: False
+Cache miss for request user_40_req_4758. Running prefill.
+Processing request user_40_req_4758 on device 1, cache hit: False
+Cache miss for request user_26_req_4759. Running prefill.
+Processing request user_26_req_4759 on device 1, cache hit: False
+Cache miss for request user_28_req_4760. Running prefill.
+Processing request user_28_req_4760 on device 1, cache hit: False
+Cache miss for request user_46_req_4761. Running prefill.
+Processing request user_46_req_4761 on device 1, cache hit: False
+Cache miss for request user_43_req_4762. Running prefill.
+Processing request user_43_req_4762 on device 1, cache hit: False
+Cache miss for request user_37_req_4763. Running prefill.
+Processing request user_37_req_4763 on device 1, cache hit: False
+Cache miss for request user_33_req_4764. Running prefill.
+Processing request user_33_req_4764 on device 1, cache hit: False
+Cache miss for request user_42_req_4765. Running prefill.
+Processing request user_42_req_4765 on device 1, cache hit: False
+Cache miss for request user_44_req_4766. Running prefill.
+Cache miss for request user_25_req_4767. Running prefill.
+Processing request user_25_req_4767 on device 1, cache hit: False
+Processing request user_44_req_4766 on device 1, cache hit: False
+Cache miss for request user_35_req_4768. Running prefill.
+Processing request user_35_req_4768 on device 1, cache hit: False
+Cache miss for request user_48_req_4769. Running prefill.
+Processing request user_48_req_4769 on device 1, cache hit: False
+Cache miss for request user_31_req_4770. Running prefill.
+Processing request user_31_req_4770 on device 1, cache hit: False
+Cache miss for request user_27_req_4771. Running prefill.
+Processing request user_27_req_4771 on device 1, cache hit: False
+Cache miss for request user_45_req_4772. Running prefill.
+Processing request user_45_req_4772 on device 1, cache hit: False
+Cache miss for request user_38_req_4773. Running prefill.
+Cache miss for request user_26_req_4774. Running prefill.
+Processing request user_38_req_4773 on device 1, cache hit: False
+Processing request user_26_req_4774 on device 1, cache hit: False
+Cache miss for request user_49_req_4775. Running prefill.
+Processing request user_49_req_4775 on device 1, cache hit: False
+Cache miss for request user_32_req_4776. Running prefill.
+Processing request user_32_req_4776 on device 1, cache hit: False
+Cache miss for request user_34_req_4777. Running prefill.
+Processing request user_34_req_4777 on device 1, cache hit: False
+Cache miss for request user_36_req_4778. Running prefill.
+Processing request user_36_req_4778 on device 1, cache hit: False
+Cache miss for request user_31_req_4779. Running prefill.
+Processing request user_31_req_4779 on device 1, cache hit: False
+Cache miss for request user_30_req_4780. Running prefill.
+Processing request user_30_req_4780 on device 1, cache hit: False
+Cache miss for request user_40_req_4781. Running prefill.
+Processing request user_40_req_4781 on device 1, cache hit: False
+Cache miss for request user_28_req_4782. Running prefill.
+Processing request user_28_req_4782 on device 1, cache hit: False
+Cache miss for request user_29_req_4783. Running prefill.
+Processing request user_29_req_4783 on device 1, cache hit: False
+Cache miss for request user_47_req_4784. Running prefill.
+Processing request user_47_req_4784 on device 1, cache hit: False
+Cache miss for request user_49_req_4785. Running prefill.
+Processing request user_49_req_4785 on device 1, cache hit: False
+Cache miss for request user_43_req_4786. Running prefill.
+Processing request user_43_req_4786 on device 1, cache hit: False
+Cache miss for request user_33_req_4787. Running prefill.
+Processing request user_33_req_4787 on device 1, cache hit: False
+Cache miss for request user_39_req_4788. Running prefill.
+Processing request user_39_req_4788 on device 1, cache hit: False
+Cache miss for request user_41_req_4789. Running prefill.
+Processing request user_41_req_4789 on device 1, cache hit: False
+Cache miss for request user_46_req_4790. Running prefill.
+Processing request user_46_req_4790 on device 1, cache hit: False
+Cache miss for request user_25_req_4791. Running prefill.
+Processing request user_25_req_4791 on device 1, cache hit: False
+Cache miss for request user_32_req_4792. Running prefill.
+Cache miss for request user_42_req_4793. Running prefill.
+Processing request user_32_req_4792 on device 1, cache hit: False
+Processing request user_42_req_4793 on device 1, cache hit: False
+Cache miss for request user_48_req_4794. Running prefill.
+Processing request user_48_req_4794 on device 1, cache hit: False
+Cache miss for request user_37_req_4795. Running prefill.
+Cache miss for request user_34_req_4796. Running prefill.
+Processing request user_34_req_4796 on device 1, cache hit: False
+Processing request user_37_req_4795 on device 1, cache hit: False
+Cache miss for request user_44_req_4797. Running prefill.
+Processing request user_44_req_4797 on device 1, cache hit: False
+Cache miss for request user_35_req_4798. Running prefill.
+Processing request user_35_req_4798 on device 1, cache hit: False
+Cache miss for request user_40_req_4799. Running prefill.
+Processing request user_40_req_4799 on device 1, cache hit: False
+Cache miss for request user_45_req_4800. Running prefill.
+Processing request user_45_req_4800 on device 1, cache hit: False
+Cache miss for request user_28_req_4801. Running prefill.
+Processing request user_28_req_4801 on device 1, cache hit: False
+Cache miss for request user_38_req_4802. Running prefill.
+Processing request user_38_req_4802 on device 1, cache hit: False
+Cache miss for request user_26_req_4803. Running prefill.
+Processing request user_26_req_4803 on device 1, cache hit: False
+Cache miss for request user_36_req_4804. Running prefill.
+Processing request user_36_req_4804 on device 1, cache hit: False
+Cache miss for request user_49_req_4805. Running prefill.
+Processing request user_49_req_4805 on device 1, cache hit: False
+Cache miss for request user_30_req_4806. Running prefill.
+Processing request user_30_req_4806 on device 1, cache hit: False
+Cache miss for request user_31_req_4807. Running prefill.
+Processing request user_31_req_4807 on device 1, cache hit: False
+Cache miss for request user_27_req_4808. Running prefill.
+Processing request user_27_req_4808 on device 1, cache hit: False
+Cache miss for request user_34_req_4809. Running prefill.
+Processing request user_34_req_4809 on device 1, cache hit: False
+Cache miss for request user_43_req_4810. Running prefill.
+Processing request user_43_req_4810 on device 1, cache hit: False
+Cache miss for request user_46_req_4811. Running prefill.
+Processing request user_46_req_4811 on device 1, cache hit: False
+Cache miss for request user_29_req_4812. Running prefill.
+Processing request user_29_req_4812 on device 1, cache hit: False
+Cache miss for request user_33_req_4813. Running prefill.
+Processing request user_33_req_4813 on device 1, cache hit: False
+Cache miss for request user_37_req_4814. Running prefill.
+Processing request user_37_req_4814 on device 1, cache hit: False
+Cache miss for request user_45_req_4815. Running prefill.
+Processing request user_45_req_4815 on device 1, cache hit: False
+Cache miss for request user_40_req_4816. Running prefill.
+Processing request user_40_req_4816 on device 1, cache hit: False
+Cache miss for request user_32_req_4817. Running prefill.
+Processing request user_32_req_4817 on device 1, cache hit: False
+Cache miss for request user_42_req_4818. Running prefill.
+Processing request user_42_req_4818 on device 1, cache hit: False
+Cache miss for request user_26_req_4819. Running prefill.
+Processing request user_26_req_4819 on device 1, cache hit: False
+Cache miss for request user_47_req_4820. Running prefill.
+Processing request user_47_req_4820 on device 1, cache hit: False
+Cache miss for request user_41_req_4821. Running prefill.
+Processing request user_41_req_4821 on device 1, cache hit: False
+Cache miss for request user_38_req_4822. Running prefill.
+Processing request user_38_req_4822 on device 1, cache hit: False
+Cache miss for request user_31_req_4823. Running prefill.
+Processing request user_31_req_4823 on device 1, cache hit: False
+Cache miss for request user_48_req_4824. Running prefill.
+Processing request user_48_req_4824 on device 1, cache hit: False
+Cache miss for request user_43_req_4825. Running prefill.
+Processing request user_43_req_4825 on device 1, cache hit: False
+Cache miss for request user_30_req_4826. Running prefill.
+Processing request user_30_req_4826 on device 1, cache hit: False
+Cache miss for request user_35_req_4827. Running prefill.
+Processing request user_35_req_4827 on device 1, cache hit: False
+Cache miss for request user_44_req_4828. Running prefill.
+Processing request user_44_req_4828 on device 1, cache hit: False
+Cache miss for request user_25_req_4829. Running prefill.
+Processing request user_25_req_4829 on device 1, cache hit: False
+Cache miss for request user_36_req_4830. Running prefill.
+Processing request user_36_req_4830 on device 1, cache hit: False
+Cache miss for request user_39_req_4831. Running prefill.
+Processing request user_39_req_4831 on device 1, cache hit: False
+Cache miss for request user_29_req_4832. Running prefill.
+Processing request user_29_req_4832 on device 1, cache hit: False
+Cache miss for request user_27_req_4833. Running prefill.
+Processing request user_27_req_4833 on device 1, cache hit: False
+Cache miss for request user_28_req_4834. Running prefill.
+Processing request user_28_req_4834 on device 1, cache hit: False
+Cache miss for request user_49_req_4835. Running prefill.
+Processing request user_49_req_4835 on device 1, cache hit: False
+Cache miss for request user_42_req_4836. Running prefill.
+Processing request user_42_req_4836 on device 1, cache hit: False
+Cache miss for request user_46_req_4837. Running prefill.
+Processing request user_46_req_4837 on device 1, cache hit: False
+Cache miss for request user_40_req_4838. Running prefill.
+Processing request user_40_req_4838 on device 1, cache hit: False
+Cache miss for request user_34_req_4839. Running prefill.
+Processing request user_34_req_4839 on device 1, cache hit: False
+Cache miss for request user_38_req_4840. Running prefill.
+Processing request user_38_req_4840 on device 1, cache hit: False
+Cache miss for request user_32_req_4841. Running prefill.
+Processing request user_32_req_4841 on device 1, cache hit: False
+Cache miss for request user_33_req_4842. Running prefill.
+Processing request user_33_req_4842 on device 1, cache hit: False
+Cache miss for request user_37_req_4843. Running prefill.
+Processing request user_37_req_4843 on device 1, cache hit: False
+Cache miss for request user_48_req_4844. Running prefill.
+Processing request user_48_req_4844 on device 1, cache hit: False
+Cache miss for request user_26_req_4845. Running prefill.
+Processing request user_26_req_4845 on device 1, cache hit: False
+Cache miss for request user_47_req_4846. Running prefill.
+Processing request user_47_req_4846 on device 1, cache hit: False
+Cache miss for request user_45_req_4847. Running prefill.
+Processing request user_45_req_4847 on device 1, cache hit: False
+Cache miss for request user_25_req_4848. Running prefill.
+Processing request user_25_req_4848 on device 1, cache hit: False
+Cache miss for request user_41_req_4849. Running prefill.
+Processing request user_41_req_4849 on device 1, cache hit: False
+Cache miss for request user_39_req_4850. Running prefill.
+Processing request user_39_req_4850 on device 1, cache hit: False
+Cache miss for request user_46_req_4851. Running prefill.
+Processing request user_46_req_4851 on device 1, cache hit: False
+Cache miss for request user_43_req_4852. Running prefill.
+Processing request user_43_req_4852 on device 1, cache hit: False
+Cache miss for request user_27_req_4853. Running prefill.
+Processing request user_27_req_4853 on device 1, cache hit: False
+Cache miss for request user_28_req_4854. Running prefill.
+Processing request user_28_req_4854 on device 1, cache hit: False
+Cache miss for request user_35_req_4855. Running prefill.
+Processing request user_35_req_4855 on device 1, cache hit: False
+Cache miss for request user_31_req_4856. Running prefill.
+Processing request user_31_req_4856 on device 1, cache hit: False
+Cache miss for request user_36_req_4857. Running prefill.
+Processing request user_36_req_4857 on device 1, cache hit: False
+Cache miss for request user_29_req_4858. Running prefill.
+Processing request user_29_req_4858 on device 1, cache hit: False
+Cache miss for request user_44_req_4859. Running prefill.
+Processing request user_44_req_4859 on device 1, cache hit: False
+Cache miss for request user_30_req_4860. Running prefill.
+Processing request user_30_req_4860 on device 1, cache hit: False
+Cache miss for request user_40_req_4861. Running prefill.
+Processing request user_40_req_4861 on device 1, cache hit: False
+Cache miss for request user_49_req_4862. Running prefill.
+Processing request user_49_req_4862 on device 1, cache hit: False
+Cache miss for request user_37_req_4863. Running prefill.
+Processing request user_37_req_4863 on device 1, cache hit: False
+Cache miss for request user_27_req_4864. Running prefill.
+Processing request user_27_req_4864 on device 1, cache hit: False
+Cache miss for request user_32_req_4865. Running prefill.
+Processing request user_32_req_4865 on device 1, cache hit: False
+Cache miss for request user_42_req_4866. Running prefill.
+Processing request user_42_req_4866 on device 1, cache hit: False
+Cache miss for request user_45_req_4867. Running prefill.
+Processing request user_45_req_4867 on device 1, cache hit: False
+Cache miss for request user_33_req_4868. Running prefill.
+Processing request user_33_req_4868 on device 1, cache hit: False
+Cache miss for request user_25_req_4869. Running prefill.
+Processing request user_25_req_4869 on device 1, cache hit: False
+Cache miss for request user_41_req_4870. Running prefill.
+Processing request user_41_req_4870 on device 1, cache hit: False
+Cache miss for request user_48_req_4871. Running prefill.
+Cache miss for request user_34_req_4872. Running prefill.
+Processing request user_48_req_4871 on device 1, cache hit: False
+Processing request user_34_req_4872 on device 1, cache hit: False
+Cache miss for request user_26_req_4873. Running prefill.
+Processing request user_26_req_4873 on device 1, cache hit: False
+Cache miss for request user_35_req_4874. Running prefill.
+Processing request user_35_req_4874 on device 1, cache hit: False
+Cache miss for request user_47_req_4875. Running prefill.
+Processing request user_47_req_4875 on device 1, cache hit: False
+Cache miss for request user_38_req_4876. Running prefill.
+Processing request user_38_req_4876 on device 1, cache hit: False
+Cache miss for request user_28_req_4877. Running prefill.
+Processing request user_28_req_4877 on device 1, cache hit: False
+Cache miss for request user_46_req_4878. Running prefill.
+Processing request user_46_req_4878 on device 1, cache hit: False
+Cache miss for request user_43_req_4879. Running prefill.
+Processing request user_43_req_4879 on device 1, cache hit: False
+Cache miss for request user_30_req_4880. Running prefill.
+Processing request user_30_req_4880 on device 1, cache hit: False
+Cache miss for request user_37_req_4881. Running prefill.
+Processing request user_37_req_4881 on device 1, cache hit: False
+Cache miss for request user_40_req_4882. Running prefill.
+Processing request user_40_req_4882 on device 1, cache hit: False
+Cache miss for request user_44_req_4883. Running prefill.
+Processing request user_44_req_4883 on device 1, cache hit: False
+Cache miss for request user_42_req_4884. Running prefill.
+Processing request user_42_req_4884 on device 1, cache hit: False
+Cache miss for request user_29_req_4885. Running prefill.
+Processing request user_29_req_4885 on device 1, cache hit: False
+Cache miss for request user_36_req_4886. Running prefill.
+Processing request user_36_req_4886 on device 1, cache hit: False
+Cache miss for request user_25_req_4887. Running prefill.
+Processing request user_25_req_4887 on device 1, cache hit: False
+Cache miss for request user_39_req_4888. Running prefill.
+Processing request user_39_req_4888 on device 1, cache hit: False
+Cache miss for request user_45_req_4889. Running prefill.
+Processing request user_45_req_4889 on device 1, cache hit: False
+Cache miss for request user_41_req_4890. Running prefill.
+Processing request user_41_req_4890 on device 1, cache hit: False
+Cache miss for request user_38_req_4891. Running prefill.
+Processing request user_38_req_4891 on device 1, cache hit: False
+Cache miss for request user_46_req_4892. Running prefill.
+Processing request user_46_req_4892 on device 1, cache hit: False
+Cache miss for request user_48_req_4893. Running prefill.
+Processing request user_48_req_4893 on device 1, cache hit: False
+Cache miss for request user_26_req_4894. Running prefill.
+Processing request user_26_req_4894 on device 1, cache hit: False
+Cache miss for request user_37_req_4895. Running prefill.
+Processing request user_37_req_4895 on device 1, cache hit: False
+Cache miss for request user_33_req_4896. Running prefill.
+Processing request user_33_req_4896 on device 1, cache hit: False
+Cache miss for request user_47_req_4897. Running prefill.
+Processing request user_47_req_4897 on device 1, cache hit: False
+Cache miss for request user_27_req_4898. Running prefill.
+Processing request user_27_req_4898 on device 1, cache hit: False
+Cache miss for request user_32_req_4899. Running prefill.
+Processing request user_32_req_4899 on device 1, cache hit: False
+Cache miss for request user_30_req_4900. Running prefill.
+Processing request user_30_req_4900 on device 1, cache hit: False
+Cache miss for request user_42_req_4901. Running prefill.
+Processing request user_42_req_4901 on device 1, cache hit: False
+Cache miss for request user_49_req_4902. Running prefill.
+Processing request user_49_req_4902 on device 1, cache hit: False
+Cache miss for request user_40_req_4903. Running prefill.
+Processing request user_40_req_4903 on device 1, cache hit: False
+Cache miss for request user_35_req_4904. Running prefill.
+Processing request user_35_req_4904 on device 1, cache hit: False
+Cache miss for request user_34_req_4905. Running prefill.
+Processing request user_34_req_4905 on device 1, cache hit: False
+Cache miss for request user_43_req_4906. Running prefill.
+Processing request user_43_req_4906 on device 1, cache hit: False
+Cache miss for request user_47_req_4907. Running prefill.
+Processing request user_47_req_4907 on device 1, cache hit: False
+Cache miss for request user_29_req_4908. Running prefill.
+Processing request user_29_req_4908 on device 1, cache hit: False
+Cache miss for request user_36_req_4909. Running prefill.
+Processing request user_36_req_4909 on device 1, cache hit: False
+Cache miss for request user_37_req_4910. Running prefill.
+Processing request user_37_req_4910 on device 1, cache hit: False
+Cache miss for request user_44_req_4911. Running prefill.
+Processing request user_44_req_4911 on device 1, cache hit: False
+Cache miss for request user_41_req_4912. Running prefill.
+Processing request user_41_req_4912 on device 1, cache hit: False
+Cache miss for request user_25_req_4913. Running prefill.
+Processing request user_25_req_4913 on device 1, cache hit: False
+Cache miss for request user_38_req_4914. Running prefill.
+Processing request user_38_req_4914 on device 1, cache hit: False
+Cache miss for request user_33_req_4915. Running prefill.
+Processing request user_33_req_4915 on device 1, cache hit: False
+Cache miss for request user_45_req_4916. Running prefill.
+Processing request user_45_req_4916 on device 1, cache hit: False
+Cache miss for request user_32_req_4917. Running prefill.
+Processing request user_32_req_4917 on device 1, cache hit: False
+Cache miss for request user_35_req_4918. Running prefill.
+Processing request user_35_req_4918 on device 1, cache hit: False
+Cache miss for request user_46_req_4919. Running prefill.
+Processing request user_46_req_4919 on device 1, cache hit: False
+Cache miss for request user_48_req_4920. Running prefill.
+Processing request user_48_req_4920 on device 1, cache hit: False
+Cache miss for request user_49_req_4921. Running prefill.
+Processing request user_49_req_4921 on device 1, cache hit: False
+Cache miss for request user_40_req_4922. Running prefill.
+Processing request user_40_req_4922 on device 1, cache hit: False
+Cache miss for request user_39_req_4923. Running prefill.
+Processing request user_39_req_4923 on device 1, cache hit: False
+Cache miss for request user_42_req_4924. Running prefill.
+Processing request user_42_req_4924 on device 1, cache hit: False
+Cache miss for request user_34_req_4925. Running prefill.
+Processing request user_34_req_4925 on device 1, cache hit: False
+Cache miss for request user_29_req_4926. Running prefill.
+Processing request user_29_req_4926 on device 1, cache hit: False
+Cache miss for request user_38_req_4927. Running prefill.
+Processing request user_38_req_4927 on device 1, cache hit: False
+Cache miss for request user_43_req_4928. Running prefill.
+Processing request user_43_req_4928 on device 1, cache hit: False
+Cache miss for request user_32_req_4929. Running prefill.
+Processing request user_32_req_4929 on device 1, cache hit: False
+Cache miss for request user_47_req_4930. Running prefill.
+Processing request user_47_req_4930 on device 1, cache hit: False
+Cache miss for request user_37_req_4931. Running prefill.
+Processing request user_37_req_4931 on device 1, cache hit: False
+Cache miss for request user_45_req_4932. Running prefill.
+Processing request user_45_req_4932 on device 1, cache hit: False
+Cache miss for request user_41_req_4933. Running prefill.
+Processing request user_41_req_4933 on device 1, cache hit: False
+Cache miss for request user_48_req_4934. Running prefill.
+Processing request user_48_req_4934 on device 1, cache hit: False
+Cache miss for request user_42_req_4935. Running prefill.
+Processing request user_42_req_4935 on device 1, cache hit: False
+Cache miss for request user_33_req_4936. Running prefill.
+Processing request user_33_req_4936 on device 1, cache hit: False
+Cache miss for request user_49_req_4937. Running prefill.
+Processing request user_49_req_4937 on device 1, cache hit: False
+Cache miss for request user_37_req_4938. Running prefill.
+Processing request user_37_req_4938 on device 1, cache hit: False
+Cache miss for request user_44_req_4939. Running prefill.
+Processing request user_44_req_4939 on device 1, cache hit: False
+Cache miss for request user_36_req_4940. Running prefill.
+Processing request user_36_req_4940 on device 1, cache hit: False
+Cache miss for request user_47_req_4941. Running prefill.
+Processing request user_47_req_4941 on device 1, cache hit: False
+Cache miss for request user_35_req_4942. Running prefill.
+Processing request user_35_req_4942 on device 1, cache hit: False
+Cache miss for request user_40_req_4943. Running prefill.
+Processing request user_40_req_4943 on device 1, cache hit: False
+Cache miss for request user_43_req_4944. Running prefill.
+Processing request user_43_req_4944 on device 1, cache hit: False
+Cache miss for request user_46_req_4945. Running prefill.
+Processing request user_46_req_4945 on device 1, cache hit: False
+Cache miss for request user_39_req_4946. Running prefill.
+Processing request user_39_req_4946 on device 1, cache hit: False
+Cache miss for request user_34_req_4947. Running prefill.
+Processing request user_34_req_4947 on device 1, cache hit: False
+Cache miss for request user_38_req_4948. Running prefill.
+Processing request user_38_req_4948 on device 1, cache hit: False
+Cache miss for request user_45_req_4949. Running prefill.
+Processing request user_45_req_4949 on device 1, cache hit: False
+Cache miss for request user_42_req_4950. Running prefill.
+Processing request user_42_req_4950 on device 1, cache hit: False
+Cache miss for request user_36_req_4951. Running prefill.
+Processing request user_36_req_4951 on device 1, cache hit: False
+Cache miss for request user_41_req_4952. Running prefill.
+Processing request user_41_req_4952 on device 1, cache hit: False
+Cache miss for request user_49_req_4953. Running prefill.
+Processing request user_49_req_4953 on device 1, cache hit: False
+Cache miss for request user_44_req_4954. Running prefill.
+Processing request user_44_req_4954 on device 1, cache hit: False
+Cache miss for request user_35_req_4955. Running prefill.
+Processing request user_35_req_4955 on device 1, cache hit: False
+Cache miss for request user_46_req_4956. Running prefill.
+Processing request user_46_req_4956 on device 1, cache hit: False
+Cache miss for request user_47_req_4957. Running prefill.
+Processing request user_47_req_4957 on device 1, cache hit: False
+Cache miss for request user_43_req_4958. Running prefill.
+Processing request user_43_req_4958 on device 1, cache hit: False
+Cache miss for request user_38_req_4959. Running prefill.
+Processing request user_38_req_4959 on device 1, cache hit: False
+Cache miss for request user_39_req_4960. Running prefill.
+Processing request user_39_req_4960 on device 1, cache hit: False
+Cache miss for request user_40_req_4961. Running prefill.
+Processing request user_40_req_4961 on device 1, cache hit: False
+Cache miss for request user_46_req_4962. Running prefill.
+Processing request user_46_req_4962 on device 1, cache hit: False
+Cache miss for request user_36_req_4963. Running prefill.
+Processing request user_36_req_4963 on device 1, cache hit: False
+Cache miss for request user_41_req_4964. Running prefill.
+Processing request user_41_req_4964 on device 1, cache hit: False
+Cache miss for request user_49_req_4965. Running prefill.
+Processing request user_49_req_4965 on device 1, cache hit: False
+Cache miss for request user_38_req_4966. Running prefill.
+Processing request user_38_req_4966 on device 1, cache hit: False
+Cache miss for request user_47_req_4967. Running prefill.
+Processing request user_47_req_4967 on device 1, cache hit: False
+Cache miss for request user_45_req_4968. Running prefill.
+Processing request user_45_req_4968 on device 1, cache hit: False
+Cache miss for request user_43_req_4969. Running prefill.
+Processing request user_43_req_4969 on device 1, cache hit: False
+Cache miss for request user_40_req_4970. Running prefill.
+Processing request user_40_req_4970 on device 1, cache hit: False
+Cache miss for request user_41_req_4971. Running prefill.
+Processing request user_41_req_4971 on device 1, cache hit: False
+Cache miss for request user_39_req_4972. Running prefill.
+Processing request user_39_req_4972 on device 1, cache hit: False
+Cache miss for request user_36_req_4973. Running prefill.
+Processing request user_36_req_4973 on device 1, cache hit: False
+Cache miss for request user_45_req_4974. Running prefill.
+Processing request user_45_req_4974 on device 1, cache hit: False
+Cache miss for request user_46_req_4975. Running prefill.
+Processing request user_46_req_4975 on device 1, cache hit: False
+Cache miss for request user_49_req_4976. Running prefill.
+Processing request user_49_req_4976 on device 1, cache hit: False
+Cache miss for request user_47_req_4977. Running prefill.
+Processing request user_47_req_4977 on device 1, cache hit: False
+Cache miss for request user_43_req_4978. Running prefill.
+Processing request user_43_req_4978 on device 1, cache hit: False
+Cache miss for request user_38_req_4979. Running prefill.
+Processing request user_38_req_4979 on device 1, cache hit: False
+Cache miss for request user_39_req_4980. Running prefill.
+Processing request user_39_req_4980 on device 1, cache hit: False
+Cache miss for request user_40_req_4981. Running prefill.
+Processing request user_40_req_4981 on device 1, cache hit: False
+Cache miss for request user_46_req_4982. Running prefill.
+Processing request user_46_req_4982 on device 1, cache hit: False
+Cache miss for request user_36_req_4983. Running prefill.
+Processing request user_36_req_4983 on device 1, cache hit: False
+Cache miss for request user_45_req_4984. Running prefill.
+Processing request user_45_req_4984 on device 1, cache hit: False
+Cache miss for request user_47_req_4985. Running prefill.
+Processing request user_47_req_4985 on device 1, cache hit: False
+Cache miss for request user_43_req_4986. Running prefill.
+Processing request user_43_req_4986 on device 1, cache hit: False
+Cache miss for request user_49_req_4987. Running prefill.
+Processing request user_49_req_4987 on device 1, cache hit: False
+Cache miss for request user_39_req_4988. Running prefill.
+Processing request user_39_req_4988 on device 1, cache hit: False
+Cache miss for request user_43_req_4989. Running prefill.
+Processing request user_43_req_4989 on device 1, cache hit: False
+Cache miss for request user_47_req_4990. Running prefill.
+Processing request user_47_req_4990 on device 1, cache hit: False
+Cache miss for request user_45_req_4991. Running prefill.
+Processing request user_45_req_4991 on device 1, cache hit: False
+Cache miss for request user_49_req_4992. Running prefill.
+Processing request user_49_req_4992 on device 1, cache hit: False
+Cache miss for request user_39_req_4993. Running prefill.
+Processing request user_39_req_4993 on device 1, cache hit: False
+Cache miss for request user_49_req_4994. Running prefill.
+Processing request user_49_req_4994 on device 1, cache hit: False
+Cache miss for request user_39_req_4995. Running prefill.
+Processing request user_39_req_4995 on device 1, cache hit: False
+Cache miss for request user_39_req_4996. Running prefill.
+Processing request user_39_req_4996 on device 1, cache hit: False
+Cache miss for request user_49_req_4997. Running prefill.
+Processing request user_49_req_4997 on device 1, cache hit: False
+Cache miss for request user_39_req_4998. Running prefill.
+Processing request user_39_req_4998 on device 1, cache hit: False
+Cache miss for request user_49_req_4999. Running prefill.
+Processing request user_49_req_4999 on device 1, cache hit: False
+Cache miss for request user_49_req_5000. Running prefill.
+Processing request user_49_req_5000 on device 1, cache hit: False
+
+Simulation Report:
+Simulation Results:
+- Total users: 50
+- Total requests: 5000
+- Average response time: 2.595s
+- Repeat requests: 1487 (29.7%)
+- New request avg time: 2.614s
+- Repeat request avg time: 2.548s
+- Speedup factor for repeat requests: 1.03x
+
+
+Performance Analysis:
+Performance Summary:
+
+Cache Statistics:
+- Cache hit rate: 8.26%
+- Cache hits: 620514
+- Cache misses: 6890654
+- Eviction count: 0
+- Cache utilization: 2.23%
+
+Inference Statistics:
+- Avg. total inference time: 2.595s
+- Avg. prefill time: 0.090s
+- Avg. decode time: 2.503s
+- Avg. time with cache hit: 0.000s
+- Avg. time with cache miss: 2.595s
+- Cache hit speedup: 0.00x
