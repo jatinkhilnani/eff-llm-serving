@@ -1,16 +1,10 @@
-import time
+import queue, random, statistics, threading, time, torch
 import numpy as np
-from typing import Dict, List, Tuple, Optional, Union
-import threading
-import queue
-from dataclasses import dataclass
-import torch
-import random
 import pandas as pd
+from typing import Dict, List, Tuple, Optional
+from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
-import statistics
 import matplotlib.pyplot as plt
-from collections import defaultdict
 
 
 @dataclass
@@ -92,7 +86,9 @@ class MemoryPool:
         """Free memory from a specific device"""
         with self.lock:
             self.device_usage[device] = max(0, self.device_usage[device] - size_mb)
-            self.available_memory += size_mb
+            self.available_memory += (
+                size_mb  ## what if size_mb > self.device_usage[device]?
+            )
 
 
 class CacheManager:
@@ -123,7 +119,7 @@ class CacheManager:
         )  # request_id -> {layer_id -> KVCache}
         self.device_mapping: Dict[str, int] = {}  # request_id -> device_id
         self.lock = threading.Lock()
-        
+
         # Add cache statistics
         self.cache_hits = 0
         self.cache_misses = 0
@@ -169,9 +165,9 @@ class CacheManager:
 
                     # Free the old allocation
                     self.memory_pool.free(old_size, device)
-                    
+
                     self.current_cache_size -= old_size
-                    
+
                     # Try to allocate new size
                     success, device = self.memory_pool.allocate(total_size, device)
                     if not success:
@@ -255,7 +251,7 @@ class CacheManager:
                 cache_entry.update_access_time()
                 self.cache_hits += 1
                 return cache_entry.key_states, cache_entry.value_states
-            
+
             self.cache_misses += 1
             return None, None
 
@@ -355,7 +351,11 @@ class CacheManager:
                 "eviction_count": self.eviction_count,
                 "current_cache_size_mb": self.current_cache_size,
                 "cache_capacity_mb": self.cache_capacity,
-                "utilization": self.current_cache_size / self.cache_capacity if self.cache_capacity > 0 else 0
+                "utilization": (
+                    self.current_cache_size / self.cache_capacity
+                    if self.cache_capacity > 0
+                    else 0
+                ),
             }
 
 
@@ -377,7 +377,7 @@ class RequestScheduler:
         self.lock = threading.Lock()
         self.scheduler_thread = threading.Thread(target=self._scheduler_loop)
         self.running = False
-        
+
         # Add timing metrics
         self.request_times = {}
 
@@ -413,7 +413,7 @@ class RequestScheduler:
                 "prefill_tokens": prefill_tokens,
                 "decode_tokens": decode_tokens,
                 "cache_hit": False,
-                "user_id": request_id.split("_")[0] if "_" in request_id else "unknown"
+                "user_id": request_id.split("_")[0] if "_" in request_id else "unknown",
             }
             self.request_queue.put(
                 (priority, time.time(), request_id, prefill_tokens, decode_tokens)
@@ -430,7 +430,7 @@ class RequestScheduler:
                 priority, submit_time, request_id, prefill_tokens, decode_tokens = (
                     self.request_queue.get(block=False)
                 )
-                
+
                 # Record queue processing start time
                 with self.lock:
                     if request_id in self.request_times:
@@ -452,11 +452,11 @@ class RequestScheduler:
                         if k is not None and v is not None:
                             cache_hit = True
                             break
-                    
+
                     # Record cache hit status
                     if request_id in self.request_times:
                         self.request_times[request_id]["cache_hit"] = cache_hit
-                        
+
                     # Adjust memory requirements based on cache hits
                     if cache_hit:
                         required_memory = decode_memory_mb
@@ -469,11 +469,15 @@ class RequestScheduler:
                     if success:
                         # Record processing start time
                         if request_id in self.request_times:
-                            self.request_times[request_id]["processing_start"] = time.time()
-                            
+                            self.request_times[request_id][
+                                "processing_start"
+                            ] = time.time()
+
                         # Process the request (in a real implementation, this would launch processing)
                         self.active_requests.add(request_id)
-                        print(f"Processing request {request_id} on device {device}, cache hit: {cache_hit}")
+                        print(
+                            f"Processing request {request_id} on device {device}, cache hit: {cache_hit}"
+                        )
 
                         # Simulate processing
                         threading.Thread(
@@ -536,11 +540,11 @@ class RequestScheduler:
             with self.lock:
                 if request_id in self.active_requests:
                     self.active_requests.remove(request_id)
-                    
+
                 # Record processing end time
                 if request_id in self.request_times:
                     self.request_times[request_id]["processing_end"] = time.time()
-                    
+
                 self.memory_pool.free(memory_mb, device)
 
         except Exception as e:
@@ -557,20 +561,33 @@ class RequestScheduler:
             stats = []
             for request_id, times in self.request_times.items():
                 if times.get("processing_end") is not None:
-                    queue_time = (times.get("processing_start", 0) - times.get("queue_start", 0)) if times.get("queue_start") is not None else 0
-                    processing_time = times.get("processing_end", 0) - times.get("processing_start", 0) if times.get("processing_start") is not None else 0
-                    total_time = times.get("processing_end", 0) - times.get("submit_time", 0)
-                    
-                    stats.append({
-                        "request_id": request_id,
-                        "user_id": times.get("user_id", "unknown"),
-                        "queue_time": queue_time,
-                        "processing_time": processing_time,
-                        "total_time": total_time,
-                        "prefill_tokens": times.get("prefill_tokens", 0),
-                        "decode_tokens": times.get("decode_tokens", 0),
-                        "cache_hit": times.get("cache_hit", False)
-                    })
+                    queue_time = (
+                        (times.get("processing_start", 0) - times.get("queue_start", 0))
+                        if times.get("queue_start") is not None
+                        else 0
+                    )
+                    processing_time = (
+                        times.get("processing_end", 0)
+                        - times.get("processing_start", 0)
+                        if times.get("processing_start") is not None
+                        else 0
+                    )
+                    total_time = times.get("processing_end", 0) - times.get(
+                        "submit_time", 0
+                    )
+
+                    stats.append(
+                        {
+                            "request_id": request_id,
+                            "user_id": times.get("user_id", "unknown"),
+                            "queue_time": queue_time,
+                            "processing_time": processing_time,
+                            "total_time": total_time,
+                            "prefill_tokens": times.get("prefill_tokens", 0),
+                            "decode_tokens": times.get("decode_tokens", 0),
+                            "cache_hit": times.get("cache_hit", False),
+                        }
+                    )
             return stats
 
 
@@ -607,7 +624,7 @@ class ModelRunner:
             Generated token IDs
         """
         start_time = time.time()
-        
+
         # This is a simplified example. In a real implementation,
         # this would run the actual model inference.
 
@@ -672,10 +689,14 @@ class ModelRunner:
 
                 if k is not None and v is not None:
                     # Append new token's KV states
-                    new_k = torch.cat([k, torch.rand(1, 8, 1, 32, device=k.device)], dim=2)
-                    new_v = torch.cat([v, torch.rand(1, 8, 1, 32, device=v.device)], dim=2)
+                    new_k = torch.cat(
+                        [k, torch.rand(1, 8, 1, 32, device=k.device)], dim=2
+                    )
+                    new_v = torch.cat(
+                        [v, torch.rand(1, 8, 1, 32, device=v.device)], dim=2
+                    )
 
-                     # Store updated cache
+                    # Store updated cache
                     self.cache_manager.store(
                         request_id=request_id,
                         layer_id=layer_id,
@@ -685,41 +706,60 @@ class ModelRunner:
             # Simulate end of text
             if next_token == 50000 - 1:  # EOS token in this simulation
                 break
-        
+
         decode_time = time.time() - decode_start
         total_time = time.time() - start_time
-        
+
         # Record timing info
         with self.lock:
-            self.inference_times.append({
-                "request_id": request_id,
-                "total_time": total_time,
-                "prefill_time": prefill_time,
-                "decode_time": decode_time,
-                "input_tokens": len(input_tokens),
-                "output_tokens": len(generated_tokens),
-                "cache_hit": cache_hit
-            })
+            self.inference_times.append(
+                {
+                    "request_id": request_id,
+                    "total_time": total_time,
+                    "prefill_time": prefill_time,
+                    "decode_time": decode_time,
+                    "input_tokens": len(input_tokens),
+                    "output_tokens": len(generated_tokens),
+                    "cache_hit": cache_hit,
+                }
+            )
 
         return generated_tokens
-    
+
     def get_inference_stats(self):
         """Get inference timing statistics"""
         with self.lock:
             if not self.inference_times:
                 return {}
-            
-            cache_hit_times = [t["total_time"] for t in self.inference_times if t["cache_hit"]]
-            cache_miss_times = [t["total_time"] for t in self.inference_times if not t["cache_hit"]]
-            
+
+            cache_hit_times = [
+                t["total_time"] for t in self.inference_times if t["cache_hit"]
+            ]
+            cache_miss_times = [
+                t["total_time"] for t in self.inference_times if not t["cache_hit"]
+            ]
+
             stats = {
-                "avg_total_time": statistics.mean([t["total_time"] for t in self.inference_times]),
-                "avg_prefill_time": statistics.mean([t["prefill_time"] for t in self.inference_times]),
-                "avg_decode_time": statistics.mean([t["decode_time"] for t in self.inference_times]),
-                "avg_time_cache_hit": statistics.mean(cache_hit_times) if cache_hit_times else 0,
-                "avg_time_cache_miss": statistics.mean(cache_miss_times) if cache_miss_times else 0,
-                "cache_hit_speedup": statistics.mean(cache_miss_times) / statistics.mean(cache_hit_times) 
-                                    if cache_hit_times and cache_miss_times else 0
+                "avg_total_time": statistics.mean(
+                    [t["total_time"] for t in self.inference_times]
+                ),
+                "avg_prefill_time": statistics.mean(
+                    [t["prefill_time"] for t in self.inference_times]
+                ),
+                "avg_decode_time": statistics.mean(
+                    [t["decode_time"] for t in self.inference_times]
+                ),
+                "avg_time_cache_hit": (
+                    statistics.mean(cache_hit_times) if cache_hit_times else 0
+                ),
+                "avg_time_cache_miss": (
+                    statistics.mean(cache_miss_times) if cache_miss_times else 0
+                ),
+                "cache_hit_speedup": (
+                    statistics.mean(cache_miss_times) / statistics.mean(cache_hit_times)
+                    if cache_hit_times and cache_miss_times
+                    else 0
+                ),
             }
             return stats
 
@@ -765,7 +805,7 @@ class MemServer:
 
         self.request_counter = 0
         self.lock = threading.Lock()
-        
+
         # Add metrics container
         self.request_metrics = []
 
@@ -780,7 +820,11 @@ class MemServer:
         print("MemServer stopped")
 
     def process_request(
-        self, user_id: str, input_text: str, priority: int = 0, max_new_tokens: int = 100
+        self,
+        user_id: str,
+        input_text: str,
+        priority: int = 0,
+        max_new_tokens: int = 100,
     ) -> str:
         """
         Process a new request
@@ -795,7 +839,7 @@ class MemServer:
             Generated text
         """
         start_time = time.time()
-        
+
         with self.lock:
             self.request_counter += 1
             request_id = f"{user_id}_req_{self.request_counter}"
@@ -814,42 +858,49 @@ class MemServer:
         # Simulate the model runner (which would typically be asynchronous)
         # In a real implementation, we'd wait for completion or use callbacks
         device = 0  # Mock assigned device
-        self.model_runner.run_inference(request_id, input_tokens, max_new_tokens, device)
-        
+        self.model_runner.run_inference(
+            request_id, input_tokens, max_new_tokens, device
+        )
+
         end_time = time.time()
-        
+
         # Record metrics
         with self.lock:
-            self.request_metrics.append({
-                "request_id": request_id,
-                "user_id": user_id,
-                "input_length": len(input_tokens),
-                "output_length": max_new_tokens,
-                "processing_time": end_time - start_time
-            })
-        
-        return f"Response for '{input_text[:20]}...' (Generated {max_new_tokens} tokens)"
-    
+            self.request_metrics.append(
+                {
+                    "request_id": request_id,
+                    "user_id": user_id,
+                    "input_length": len(input_tokens),
+                    "output_length": max_new_tokens,
+                    "processing_time": end_time - start_time,
+                }
+            )
+
+        return (
+            f"Response for '{input_text[:20]}...' (Generated {max_new_tokens} tokens)"
+        )
+
     def get_metrics(self):
         """Get all metrics including cache and timing statistics"""
         cache_stats = self.cache_manager.get_stats()
         timing_stats = self.scheduler.get_timing_stats()
         inference_stats = self.model_runner.get_inference_stats()
-        
+
         return {
             "cache_stats": cache_stats,
             "timing_stats": timing_stats,
             "inference_stats": inference_stats,
-            "request_metrics": self.request_metrics
+            "request_metrics": self.request_metrics,
         }
+
 
 class UserSimulator:
     """Simulates multiple users making requests to the MemServer"""
-    
+
     def __init__(self, server: MemServer, num_users: int, prompt_templates: List[str]):
         """
         Initialize user simulator
-        
+
         Args:
             server: The MemServer instance
             num_users: Number of simulated users
@@ -859,18 +910,20 @@ class UserSimulator:
         self.user_ids = [f"user_{i}" for i in range(num_users)]
         self.prompt_templates = prompt_templates
         self.simulation_stats = []
-        
-    def _user_session(self, user_id: str, num_requests: int, repeat_probability: float = 0.3):
+
+    def _user_session(
+        self, user_id: str, num_requests: int, repeat_probability: float = 0.3
+    ):
         """
         Simulate a user session with multiple requests
-        
+
         Args:
             user_id: User identifier
             num_requests: Number of requests to make
             repeat_probability: Probability of repeating a previous prompt
         """
         previous_prompts = []
-        
+
         for i in range(num_requests):
             # Decide whether to repeat a previous prompt
             if previous_prompts and random.random() < repeat_probability:
@@ -880,89 +933,93 @@ class UserSimulator:
                 prompt = random.choice(self.prompt_templates)
                 previous_prompts.append(prompt)
                 is_repeat = False
-            
+
             # Add some randomness to the prompt to simulate variations
             if not is_repeat:
                 prompt = f"{prompt} {random.choice(['Please', 'Could you', 'I would like to'])} elaborate."
-            
+
             # Determine priority (some users might have higher priority)
             priority = 0 if "vip" in user_id else random.randint(1, 3)
-            
+
             # Determine max tokens based on prompt complexity
             max_tokens = random.randint(50, 200)
-            
+
             # Process the request
             start_time = time.time()
             response = self.server.process_request(
                 user_id=user_id,
                 input_text=prompt,
                 priority=priority,
-                max_new_tokens=max_tokens
+                max_new_tokens=max_tokens,
             )
             end_time = time.time()
-            
+
             # Record statistics
-            self.simulation_stats.append({
-                "user_id": user_id,
-                "request_num": i + 1,
-                "prompt": prompt[:30] + "...",
-                "is_repeat": is_repeat,
-                "priority": priority,
-                "max_tokens": max_tokens,
-                "response_time": end_time - start_time
-            })
-            
+            self.simulation_stats.append(
+                {
+                    "user_id": user_id,
+                    "request_num": i + 1,
+                    "prompt": prompt[:30] + "...",
+                    "is_repeat": is_repeat,
+                    "priority": priority,
+                    "max_tokens": max_tokens,
+                    "response_time": end_time - start_time,
+                }
+            )
+
             # Simulate thinking time between requests
             think_time = random.uniform(0.5, 3.0)
             time.sleep(think_time)
-    
+
     def run_simulation(self, requests_per_user: int, concurrent_users: int = None):
         """
         Run the simulation with multiple users
-        
+
         Args:
             requests_per_user: Number of requests per user
             concurrent_users: Max number of concurrent users (default: all)
         """
         if concurrent_users is None:
             concurrent_users = len(self.user_ids)
-        
+
         # Create a thread pool
         with ThreadPoolExecutor(max_workers=concurrent_users) as executor:
             # Submit user sessions to the executor
             futures = [
-                executor.submit(self._user_session, user_id, requests_per_user) 
+                executor.submit(self._user_session, user_id, requests_per_user)
                 for user_id in self.user_ids
             ]
-            
+
             # Wait for all futures to complete
             for future in futures:
                 future.result()
-    
+
     def get_simulation_stats(self):
         """Get simulation statistics"""
         return self.simulation_stats
-    
+
     def generate_analysis_report(self):
         """Generate analysis of simulation results"""
         if not self.simulation_stats:
             return "No simulation data available."
-        
+
         # Convert to DataFrame for easier analysis
         df = pd.DataFrame(self.simulation_stats)
-        
+
         # Group by user
-        user_stats = df.groupby("user_id").agg({
-            "response_time": ["mean", "min", "max"],
-            "is_repeat": ["mean", "sum"],
-            "request_num": "max"
-        })
-        
+        user_stats = df.groupby("user_id").agg(
+            {
+                "response_time": ["mean", "min", "max"],
+                "is_repeat": ["mean", "sum"],
+                "request_num": "max",
+            }
+        )
+
         # Analyze repeat vs. non-repeat times
         repeat_times = df[df["is_repeat"]]["response_time"].mean()
         new_times = df[~df["is_repeat"]]["response_time"].mean()
         speedup = new_times / repeat_times if repeat_times > 0 else 0
-        
+
         report = (
             f"Simulation Results:\n"
             f"- Total users: {len(self.user_ids)}\n"
@@ -973,44 +1030,44 @@ class UserSimulator:
             f"- Repeat request avg time: {repeat_times:.3f}s\n"
             f"- Speedup factor for repeat requests: {speedup:.2f}x\n"
         )
-        
+
         return report
 
 
 # Analytics class for visualizing and analyzing results
 class PerformanceAnalyzer:
     """Analyzes and visualizes performance metrics"""
-    
+
     def __init__(self, metrics: dict):
         """
         Initialize performance analyzer
-        
+
         Args:
             metrics: Dictionary of metrics from MemServer
         """
         self.metrics = metrics
-        
+
     def create_timing_df(self):
         """Create a DataFrame of timing statistics"""
         if "timing_stats" not in self.metrics or not self.metrics["timing_stats"]:
             return pd.DataFrame()
-        
+
         return pd.DataFrame(self.metrics["timing_stats"])
-    
+
     def create_request_df(self):
         """Create a DataFrame of request metrics"""
         if "request_metrics" not in self.metrics or not self.metrics["request_metrics"]:
             return pd.DataFrame()
-        
+
         return pd.DataFrame(self.metrics["request_metrics"])
-    
+
     def generate_summary_report(self):
         """Generate a summary report of performance metrics"""
         cache_stats = self.metrics.get("cache_stats", {})
         inference_stats = self.metrics.get("inference_stats", {})
-        
+
         report = "Performance Summary:\n\n"
-        
+
         # Cache statistics
         report += "Cache Statistics:\n"
         if cache_stats:
@@ -1018,10 +1075,12 @@ class PerformanceAnalyzer:
             report += f"- Cache hits: {cache_stats.get('cache_hits', 0)}\n"
             report += f"- Cache misses: {cache_stats.get('cache_misses', 0)}\n"
             report += f"- Eviction count: {cache_stats.get('eviction_count', 0)}\n"
-            report += f"- Cache utilization: {cache_stats.get('utilization', 0)*100:.2f}%\n"
+            report += (
+                f"- Cache utilization: {cache_stats.get('utilization', 0)*100:.2f}%\n"
+            )
         else:
             report += "- No cache statistics available\n"
-        
+
         report += "\nInference Statistics:\n"
         if inference_stats:
             report += f"- Avg. total inference time: {inference_stats.get('avg_total_time', 0):.3f}s\n"
@@ -1032,45 +1091,46 @@ class PerformanceAnalyzer:
             report += f"- Cache hit speedup: {inference_stats.get('cache_hit_speedup', 0):.2f}x\n"
         else:
             report += "- No inference statistics available\n"
-        
+
         return report
-    
+
     def plot_timing_comparison(self):
         """Plot timing comparison between cache hits and misses"""
         df = self.create_timing_df()
         if df.empty:
             return None
-        
+
         # Create comparison data
         hit_times = df[df["cache_hit"]]["processing_time"].tolist()
         miss_times = df[~df["cache_hit"]]["processing_time"].tolist()
-        
+
         # Create plot
         fig, ax = plt.subplots(figsize=(10, 6))
         ax.boxplot([hit_times, miss_times], labels=["Cache Hit", "Cache Miss"])
         ax.set_title("Processing Time: Cache Hit vs Miss")
         ax.set_ylabel("Time (seconds)")
-        
+
         return fig
-    
+
     def plot_user_experience(self):
         """Plot user experience metrics"""
         df = self.create_timing_df()
         if df.empty:
             return None
-        
+
         # Group by user and get average response times
-        user_df = df.groupby("user_id").agg({
-            "total_time": "mean",
-            "cache_hit": "mean"
-        }).reset_index()
-        
+        user_df = (
+            df.groupby("user_id")
+            .agg({"total_time": "mean", "cache_hit": "mean"})
+            .reset_index()
+        )
+
         # Sort by cache hit rate
         user_df = user_df.sort_values("cache_hit", ascending=False)
-        
+
         # Create plot
         fig, ax1 = plt.subplots(figsize=(12, 7))
-        
+
         x = range(len(user_df))
         ax1.bar(x, user_df["total_time"], color="skyblue")
         ax1.set_xlabel("User")
@@ -1078,16 +1138,16 @@ class PerformanceAnalyzer:
         ax1.tick_params(axis="y", labelcolor="blue")
         ax1.set_xticks(x)
         ax1.set_xticklabels(user_df["user_id"], rotation=45)
-        
+
         ax2 = ax1.twinx()
         ax2.plot(x, user_df["cache_hit"] * 100, "r-o", linewidth=2)
         ax2.set_ylabel("Cache Hit Rate (%)", color="red")
         ax2.tick_params(axis="y", labelcolor="red")
-        
+
         fig.tight_layout()
         fig.suptitle("User Experience vs Cache Hit Rate")
         plt.subplots_adjust(top=0.9)
-        
+
         return fig
 
 
@@ -1121,57 +1181,57 @@ def run_example():
             "How do I learn programming?",
             "What are the best practices for data science?",
             "Can you explain how LLMs work?",
-            "How does KV caching benefit LLM inference?"
+            "How does KV caching benefit LLM inference?",
         ]
-        
+
         # Create user simulator
         num_users = 50
         rpu = 100
         con_users = 25
         user_simulator = UserSimulator(server, num_users, prompt_templates)
-        
+
         # Run simulation
         print(f"Starting simulation with {num_users} users...")
         user_simulator.run_simulation(requests_per_user=rpu, concurrent_users=con_users)
-        
+
         # Get simulation results
         simulation_report = user_simulator.generate_analysis_report()
         print("\nSimulation Report:")
         print(simulation_report)
-        
+
         # Gather metrics
         metrics = server.get_metrics()
-        
+
         # Analyze performance
         analyzer = PerformanceAnalyzer(metrics)
         summary_report = analyzer.generate_summary_report()
         print("\nPerformance Analysis:")
         print(summary_report)
-        
+
         # Plot results (in a real environment, you would save these plots)
         try:
             timing_plot = analyzer.plot_timing_comparison()
             user_plot = analyzer.plot_user_experience()
-            
+
             # Save plots if possible (comment out if running in environment without plot support)
             if timing_plot:
                 timing_plot.savefig("cache_timing_comparison.png")
                 print("Saved timing comparison plot to cache_timing_comparison.png")
-            
+
             if user_plot:
                 user_plot.savefig("user_experience.png")
                 print("Saved user experience plot to user_experience.png")
         except Exception as e:
             print(f"Could not generate plots: {e}")
-        
+
         # Convert timing stats to DataFrame for more detailed analysis
         timing_df = pd.DataFrame(metrics["timing_stats"])
         if not timing_df.empty:
             # Calculate speedup ratio per user
-            user_stats = timing_df.groupby(["user_id", "cache_hit"]).agg({
-                "total_time": ["mean", "count"]
-            })
-            
+            user_stats = timing_df.groupby(["user_id", "cache_hit"]).agg(
+                {"total_time": ["mean", "count"]}
+            )
+
             print("\nDetailed User Performance:")
             for user_id in timing_df["user_id"].unique():
                 user_data = user_stats.loc[user_id]
@@ -1183,9 +1243,11 @@ def run_example():
                     miss_count = user_data.loc[False][("total_time", "count")]
                     total = hit_count + miss_count
                     hit_rate = hit_count / total if total > 0 else 0
-                    
+
                     print(f"User {user_id}:")
-                    print(f"  - Cache hit rate: {hit_rate*100:.1f}% ({hit_count}/{total})")
+                    print(
+                        f"  - Cache hit rate: {hit_rate*100:.1f}% ({hit_count}/{total})"
+                    )
                     print(f"  - Avg time with cache hit: {hit_time:.3f}s")
                     print(f"  - Avg time with cache miss: {miss_time:.3f}s")
                     print(f"  - Speedup: {speedup:.2f}x")
